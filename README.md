@@ -6,7 +6,7 @@ git clone https://github.com/JayaByu/Geolocation/
 ```
 Run Your Local Server 
 ```
-php -S 127.0.0.1:3310
+php -S 127.0.0.1:yourFavPort
 ```
 Download Ngrok 
 ```
